@@ -31,7 +31,8 @@ using financial reports or offering installations to others.
 - **Dependencies need continuing review.** Development tools and container bases
   can acquire advisories after a release. Consult the exact revision's CI and
   dependency alerts; older internal scans do not establish the current status.
-  On 16 October 2026, the locked npm development graph reported six high and
+  On 16 October 2026, after the compatible source-map-js patch, the locked npm development graph
+  reported five high and
   two moderate advisories; `npm audit --omit=dev` reported zero. The Tailwind 3
   pattern/parser chain needs a reviewed migration; no major-version upgrade is
   claimed here. See [validation](RELEASE_VALIDATION.md).

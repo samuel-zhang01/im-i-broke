@@ -31,7 +31,7 @@ work is tracked in the [improvement plan](APP_IMPROVEMENT_PLAN.md).
 
 The repository is public at
 [samuel-zhang01/im-i-broke](https://github.com/samuel-zhang01/im-i-broke).
-Its new root has no predecessor parents, branches or tags. Both source and
+No predecessor commit parents, branches or tags were imported. Both source and
 history passed checksum-pinned Gitleaks, and private reporting/push protection
 are enabled. Public CI uses GitHub-hosted runners; there are no repository
 secrets or private runners.
@@ -49,3 +49,9 @@ Start future work from this repository's `main` and a feature branch. Do not
 merge private predecessor history here or repoint an existing private
 installation's remote to work around unrelated histories. Code publication and
 household deployment remain separate actions.
+
+A compatible source-map-js development-tool patch (1.2.1 → 1.2.2) also passed
+156 frontend units/build with all 104 generated frontend files identical to the
+browser-tested build. Remaining npm advisories are five high/two moderate in
+the development graph; production-only npm audit remains zero. A Tailwind major
+migration is tracked separately.
