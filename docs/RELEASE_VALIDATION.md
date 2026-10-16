@@ -13,10 +13,21 @@ predecessor receipts are not carried forward as release acceptance.
 | Fresh-owner browser setup | 8/8 passed, desktop/phone Chromium and WebKit, 33.4s |
 | Authentication/recovery | 1/1 Chromium browser scenario passed, 8.5s |
 | Focused UI | 40/40 desktop/phone Chromium checks passed, including Settings, dialogs, text enlargement and shared layout, 22.5s |
+| Published sample CSV | Actual bundled file imported three rows with £2,000 income/£47 spending; repeated preview recognized all three duplicates |
 | Docker inputs | Both scratch build-input probes passed; 34 private/unneeded fixtures excluded per context |
 | Secrets | Checksum-pinned Gitleaks 8.30.1; final exported source and new Git history scanned before push |
 | Local distribution build | Blocked by this host's AppArmor container-init error at the first Docker RUN; no image-install/restore pass claimed from this attempt |
-| GitHub-hosted CI | Pending first public run; it will test production-image backend/frontend units, installation, enrollment, upgrade and complete encrypted recovery |
+| GitHub-hosted CI | [Passed on the initial public runtime](https://github.com/samuel-zhang01/im-i-broke/actions/runs/38930948149): 1,238 production-image backend tests in 43.490s, 156 frontend units, both production builds, fresh installation/enrollment, upgrade rehearsal and complete encrypted recovery |
+| Repository protections | Public visibility and AGPL recognized; secret scanning/push protection, private vulnerability reporting and dependency alerts enabled; no private runners or repository secrets; main requires synthetic CI and blocks force pushes/deletion |
+
+The hosted smoke gate used new named volumes and an internal-only backend
+network. It verified CSV identity/reimport, joint ownership, restored financial
+rows and encrypted connection credentials, data/key/configuration backups, and
+preserved the original session after backup. Provider requests were disabled;
+its random project and storage were removed. Subsequent documentation-only
+commits do not change that runtime. See the latest
+[main CI](https://github.com/samuel-zhang01/im-i-broke/actions/workflows/ci.yml)
+for verification of later commits.
 
 The source snapshot uses a fresh root commit and no predecessor Git objects,
 branches or tags. Only committed source was exported. Private storage,

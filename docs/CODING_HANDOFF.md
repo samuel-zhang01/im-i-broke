@@ -26,3 +26,26 @@ Use [Contributing](../CONTRIBUTING.md) for development and checks,
 
 No household deployment is part of preparing this repository. Remaining product
 work is tracked in the [improvement plan](APP_IMPROVEMENT_PLAN.md).
+
+## Verified public baseline
+
+The repository is public at
+[samuel-zhang01/im-i-broke](https://github.com/samuel-zhang01/im-i-broke).
+Its new root has no predecessor parents, branches or tags. Both source and
+history passed checksum-pinned Gitleaks, and private reporting/push protection
+are enabled. Public CI uses GitHub-hosted runners; there are no repository
+secrets or private runners.
+
+Local checks passed 1,238 backend tests, 156 frontend units/build, eight setup
+browser scenarios, one authentication/recovery scenario and 40 focused UI checks.
+The [initial public CI](https://github.com/samuel-zhang01/im-i-broke/actions/runs/38930948149)
+also passed production-image tests and disposable installation, enrollment,
+upgrade rehearsal and complete encrypted recovery. The local Docker build
+attempt remained blocked by its AppArmor host; the hosted gate is separate
+successful evidence. Exact counts and limitations are in
+[release validation](RELEASE_VALIDATION.md).
+
+Start future work from this repository's `main` and a feature branch. Do not
+merge private predecessor history here or repoint an existing private
+installation's remote to work around unrelated histories. Code publication and
+household deployment remain separate actions.

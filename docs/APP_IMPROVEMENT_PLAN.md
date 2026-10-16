@@ -6,7 +6,7 @@ and [release validation](RELEASE_VALIDATION.md) for the current evidence.
 
 | Priority | Work | Acceptance |
 | --- | --- | --- |
-| Release | Verify public source, installation, enrollment, upgrades and encrypted recovery | Fresh history/source scans, complete synthetic backend/frontend gates and matching-image smoke receipts |
+| Release baseline — complete | Public source, installation, enrollment, upgrade rehearsal and encrypted recovery | Fresh history/source scans, backend/frontend gates, focused setup/auth/UI browser checks and [passing matching-image CI](RELEASE_VALIDATION.md); broader platform/provider limits remain |
 | Provenance | Distinguish new empty manual accounts from statement-backed accounts | Truthful empty, CSV, manual-balance and statement labels; keep unknown-balance warnings |
 | Historical precision | Add an explicit correction path for old KWD valuations stored at two decimals | Preserve original evidence; require a reviewed correction, without silently rewriting saved valuations |
 | Dependencies | Review current development and image advisories | Inspect complete dependency graph, compatible fixes and required build/browser checks |
