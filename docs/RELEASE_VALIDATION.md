@@ -24,7 +24,8 @@ The hosted smoke gate used new named volumes and an internal-only backend
 network. It verified CSV identity/reimport, joint ownership, restored financial
 rows and encrypted connection credentials, data/key/configuration backups, and
 preserved the original session after backup. Provider requests were disabled;
-its random project and storage were removed. A later compatible `source-map-js` update to 1.2.2 passed all 156 frontend
+its random project and storage were removed. A later compatible `source-map-js`
+update to 1.2.2 passed all 156 frontend
 units and the build; all 104 generated frontend files were byte-for-byte
 identical to the browser-tested build. See the latest
 [main CI](https://github.com/samuel-zhang01/im-i-broke/actions/workflows/ci.yml)
@@ -37,12 +38,14 @@ were excluded or replaced. Scanner passes are not proof that arbitrary future
 examples contain no personal information.
 
 After the compatible source-map-js patch, the npm lockfile audit reported five
-high and two moderate development advisories;
-production-only npm audit reported zero. Outstanding chains include
-[braces pattern handling](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm),
-[selector parsing](https://github.com/advisories/GHSA-rj75-hqrm-r3gf) . These remaining chains are not marked repaired.
+high and two moderate development advisories; production-only npm audit reported
+zero. Outstanding chains include
+[braces pattern handling](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) and
+[selector parsing](https://github.com/advisories/GHSA-rj75-hqrm-r3gf). These
+remaining chains are not marked repaired.
 The [source-map-js advisory](https://github.com/advisories/GHSA-68fv-2mgg-jv7q)
-was repaired by updating the locked dependency from 1.2.1 to 1.2.2. A Tailwind major migration needs its own visual/browser gates.
+was repaired by updating the locked dependency from 1.2.1 to 1.2.2. A Tailwind
+major migration needs its own visual/browser gates.
 The production build retains a large-chart-chunk warning; the backend test
 client retains its upstream Starlette/httpx deprecation notice.
 
