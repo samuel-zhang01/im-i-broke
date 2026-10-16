@@ -4,5 +4,5 @@ uvicorn[standard]==0.53.0
 pdfplumber==0.11.10
 python-dateutil==2.9.0.post0
 cryptography==50.0.1
-pyotp==2.9.0
+pyotp==2.10.0
 snaptrade-python-sdk==13.0.23
