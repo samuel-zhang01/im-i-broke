@@ -1,0 +1,2 @@
+# Optional local PDF-to-Markdown review engine; not required for bank ingestion.
+pymupdf4llm==1.28.2

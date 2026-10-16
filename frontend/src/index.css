@@ -1,0 +1,308 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  color-scheme: light;
+}
+html,
+body,
+#root {
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  background: #f5f4ef;
+  color: #252c28;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button:focus-visible,
+a:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #af4321;
+  outline-offset: 3px;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+button,
+summary,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+::selection {
+  background: #eac6b6;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #bec7bd;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #8c9a8a;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@layer components {
+  /* Shared title hierarchy: no fixed heights or truncation for long names. */
+  .heading { @apply min-w-0 font-semibold; overflow-wrap: anywhere; }
+  .heading :is(button, a) { max-width: 100%; overflow-wrap: anywhere; }
+  .heading--page { @apply text-2xl tracking-tight; line-height: 1.25; }
+  .heading--intro { @apply text-lg tracking-tight sm:text-xl; line-height: 1.35; }
+  .heading--section { @apply text-base; line-height: 1.4; }
+  .heading--subsection { @apply text-sm; line-height: 1.4; }
+  .heading--label { @apply text-xs uppercase tracking-[0.1em] text-mist; line-height: 1.5; }
+  .card {
+    @apply min-w-0 bg-surface border border-line rounded-xl shadow-depth;
+  }
+  /* Component-layer padding lets caller utilities (p-0, p-3, etc.) win reliably. */
+  .card-padded { @apply p-4; }
+  .pill {
+    @apply inline-flex max-w-full items-center gap-1 rounded-md px-2 py-0.5 text-xs font-medium;
+  }
+  .btn {
+    @apply inline-flex min-h-10 max-w-full items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium border border-line bg-white hover:bg-surface2 transition-colors;
+  }
+  .btn-primary {
+    @apply btn border-teal bg-teal text-white hover:bg-teal/90;
+  }
+  .btn-quiet {
+    @apply border-transparent bg-transparent text-teal hover:bg-surface2;
+  }
+  .input {
+    @apply min-w-0 max-w-full rounded-lg bg-white border border-line px-3 py-2 text-sm text-foam placeholder:text-mist/70 outline-none focus:border-teal;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.1em] text-mist;
+  }
+  .metric-label { @apply text-xs font-medium leading-relaxed text-mist; }
+  .metric-value {
+    @apply text-3xl font-semibold tracking-tight tabular-nums text-foam;
+  }
+  .field-label {
+    @apply flex min-w-0 flex-col gap-1.5 text-sm font-medium text-mist;
+  }
+}
+
+/* Optional evidence has the same title scale and usable row height everywhere.
+   Rich disclosure headers own their geometry in Disclosure.css. */
+details > summary:not(.disclosure-summary) {
+  min-height: 44px;
+  padding-block: 12px;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+}
+.btn, .segment { font-size: 14px; }
+.input::placeholder, .settings-input::placeholder, textarea::placeholder { color: #606960; opacity: 1; }
+.modal-header .btn { min-height: 44px; min-width: 44px; }
+.modal-body { scroll-padding-block: 16px; }
+.modal-footer .btn { min-height: 44px; }
+
+/* Grid children and native controls must be allowed to shrink inside cards. */
+.grid > * { min-width: 0; }
+fieldset { min-width: 0; min-inline-size: 0; }
+input[type="range"] { max-width: 100%; }
+/* The canvas can retain its old width briefly while ECharts resizes. */
+.echarts-for-react { min-width: 0; max-width: 100%; overflow: hidden; }
+@media (pointer: coarse) {
+  button { min-height: 44px; min-width: 44px; }
+  .btn, .input, .settings-input { min-height: 44px; }
+  .input, .settings-input, .navigation-select { font-size: 16px; }
+}
+
+/* A mutually exclusive view switch, with full-width touch targets on phones. */
+.segmented-control { display: inline-flex; flex-wrap: wrap; gap: 4px; max-width: 100%; padding: 4px; background: #eceee8; border: 1px solid #d8ddd5; border-radius: 12px; }
+.segment { min-height: 44px; flex: 1 1 auto; padding: 9px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #606960; }
+.segment.active { background: white; color: #252c28; box-shadow: 0 1px 4px #20252218; }
+.segment:hover { color: #252c28; }
+@media (max-width: 480px) {
+  .segmented-control { display: flex; flex-wrap: nowrap; overflow-x: auto; }
+  .segment { flex: 1 0 auto; padding: 8px 10px; font-size: 12px; }
+}
+@media (max-width: 639px) {
+  .workspace-nav { display: flex; overflow-x: auto; }
+  .workspace-nav > button { flex: 1 0 auto; white-space: nowrap; padding-inline: 12px; }
+}
+
+/* One table rhythm across banking, investments and merchant reviews. Cell
+   alignment, status colours and expanded/empty rows remain caller-controlled. */
+:where(.data-table) { text-align: left; }
+.data-table {
+  --table-cell-x: 16px;
+  --table-cell-y: 12px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+.data-table[data-density="compact"] { --table-cell-x: 12px; --table-cell-y: 8px; }
+.data-table > thead {
+  background: #eceee8;
+  color: #606960;
+  font-size: 12px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+.data-table > thead > tr > th {
+  padding: 10px var(--table-cell-x);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+  vertical-align: middle;
+}
+.data-table > tbody > tr > :is(td, th):not([colspan]),
+.data-table > tfoot > tr > :is(td, th):not([colspan]) {
+  padding: var(--table-cell-y) var(--table-cell-x);
+  vertical-align: top;
+}
+.data-table > tbody > tr { border-top: 1px solid #d8ddd599; }
+.data-table > tbody > tr:hover,
+.data-table > tbody > tr:focus-within { background-color: #f5f4ef; }
+.data-table > tfoot { border-top: 1px solid #d8ddd5; font-weight: 500; }
+.data-table-region:focus-visible { outline: 2px solid #af4321; outline-offset: 3px; }
+@media (max-width: 639px) {
+  .data-table,
+  .data-table[data-density="compact"] { --table-cell-x: 8px; --table-cell-y: 8px; font-size: 13px; line-height: 1.4; }
+  .data-table > thead > tr > th { padding-top: 8px; padding-bottom: 8px; }
+  .data-table :is(button, a) { min-height: 44px; }
+  .data-table button { padding-top: 6px; padding-bottom: 6px; }
+}
+
+/* Native focus scrolling must leave room for the fixed phone/tablet navigation. */
+@media (max-width: 1023px) {
+  html {
+    scroll-padding-top: calc(var(--navigation-top, 72px) + 8px);
+    scroll-padding-bottom: calc(var(--navigation-bottom, 72px) + 8px);
+  }
+}
+
+/* Desktop workspaces favour records over framing; phones retain touch spacing. */
+@media (min-width: 1024px) {
+  .workspace-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 20px;
+    margin-bottom: 16px;
+    padding: 0;
+    border-width: 0 0 1px;
+    border-radius: 0;
+    background: transparent;
+  }
+  .workspace-nav > button {
+    flex: 0 1 auto;
+    padding: 8px 2px;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+  }
+  .workspace-nav > button[aria-current="page"],
+  .workspace-nav > button[aria-selected="true"] {
+    background: transparent;
+    box-shadow: none;
+    border-bottom-color: #af4321;
+    color: #252c28;
+    font-weight: 600;
+  }
+  .workspace-nav > button:hover { color: #252c28; background: #eceee8; }
+  .data-table { --table-cell-x: 12px; --table-cell-y: 8px; }
+  .data-table[data-density="compact"] { --table-cell-x: 10px; --table-cell-y: 6px; }
+  .data-table > thead > tr > th { padding-top: 8px; padding-bottom: 8px; }
+  .transaction-toolbar {
+    display: grid;
+    grid-template-columns: minmax(200px, 1.5fr) repeat(2, minmax(0, 1fr)) minmax(110px, .7fr);
+    gap: 10px;
+    align-items: start;
+  }
+  .transaction-toolbar > *, .transaction-filter-content > * { margin-top: 0 !important; }
+  .transaction-filter-disclosure, .transaction-filter-content, .transaction-selectors { display: contents; }
+  .transaction-filter-content > :not(.transaction-selectors) { grid-column: 1 / -1; }
+}
+@media (min-width: 1024px) and (pointer: fine) {
+  .btn { min-height: 36px; padding: 6px 10px; }
+  .transaction-clear { min-height: 36px; }
+  .input { min-height: 36px; padding-top: 6px; padding-bottom: 6px; }
+  .segment { min-height: 36px; padding-top: 6px; padding-bottom: 6px; }
+  .workspace-nav > button { min-height: 38px; }
+  .data-table details > summary:not(.disclosure-summary) {
+    min-height: 24px;
+    padding-block: 2px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+/* Stable loading geometry; reveal opacity without delaying data or moving it. */
+@layer components {
+  .skeleton-block { height: 1rem; }
+}
+.skeleton-block { position: relative; max-width: 100%; overflow: hidden; background: #e9ece5; border-radius: 6px; }
+.skeleton-block::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 20%, #ffffff65 50%, transparent 80%);
+  transform: translateX(-100%);
+  animation: skeleton-sheen 2.2s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes skeleton-sheen { to { transform: translateX(100%); } }
+.content-enter { animation: content-enter 160ms ease-out; }
+.async-content { position: relative; }
+@keyframes content-enter { from { opacity: .45; } to { opacity: 1; } }
+.wealth-chart-slot { min-height: 480px; }
+.table-actions { display: flex; align-items: center; justify-content: flex-end; gap: 4px; white-space: nowrap; }
+.table-action { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 6px; color: #606960; }
+.table-action:hover { color: #af4321; background: #eceee8; }
+@media (pointer: coarse) { .table-action { width: 44px; height: 44px; } }
+.debt-evidence summary::-webkit-details-marker { display: none; }
+.debt-evidence[open] .debt-chevron { transform: rotate(90deg); }
+@media (min-width: 1024px) {
+  .data-table > tbody > tr > :is(td, th):not([colspan]),
+  .data-table > tfoot > tr > :is(td, th):not([colspan]) { vertical-align: middle; }
+}
+@media (pointer: coarse) {
+  .table-action { width: 44px; height: 44px; }
+  .debt-evidence summary { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-block::after { animation: none; display: none; }
+  .content-enter { animation: none; }
+  .async-content { transition: none; }
+}
+@media (forced-colors: active) {
+  .skeleton-block { border: 1px solid GrayText; }
+  .skeleton-block::after { display: none; }
+  .async-content[aria-busy="true"] { opacity: 1; }
+}

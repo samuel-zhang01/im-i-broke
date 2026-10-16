@@ -1,0 +1,99 @@
+name: Validate application and distribution
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      release_ref:
+        description: Tag to validate for an explicitly requested image release
+        type: string
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  repository:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ inputs.release_ref || github.sha }}
+      - name: Check public source layout and documentation links
+        run: python3 scripts/check_repository.py
+      - name: Validate bundled institution catalog and PNGs
+        run: python3 scripts/sync_institution_logos.py --check
+      - name: Install checksum-pinned secret scanner
+        run: |
+          curl --fail --silent --show-error --location --output "$RUNNER_TEMP/gitleaks.tar.gz" https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz
+          echo "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  $RUNNER_TEMP/gitleaks.tar.gz" | sha256sum --check --status
+          tar -xzf "$RUNNER_TEMP/gitleaks.tar.gz" -C "$RUNNER_TEMP" gitleaks
+      - name: Verify the scanner still rejects synthetic credentials in documentation
+        run: GITLEAKS_BINARY="$RUNNER_TEMP/gitleaks" python3 -m unittest discover -s backend/tests -p test_repository_hygiene.py -v
+      - name: Scan Git history and tracked source without printing secrets
+        run: |
+          "$RUNNER_TEMP/gitleaks" git --redact=100 --config .gitleaks.toml --log-opts=--all .
+          mkdir "$RUNNER_TEMP/public-source"
+          git archive HEAD | tar -x -C "$RUNNER_TEMP/public-source"
+          "$RUNNER_TEMP/gitleaks" dir --redact=100 --config .gitleaks.toml "$RUNNER_TEMP/public-source"
+  application:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ inputs.release_ref || github.sha }}
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install test dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y age
+          python -m pip install -r backend/requirements.txt httpx
+      - name: Backend regression suite including fresh setup and recovery
+        working-directory: backend
+        run: |
+          curl --fail --silent --show-error --location --output "$RUNNER_TEMP/gitleaks.tar.gz" https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz
+          echo "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  $RUNNER_TEMP/gitleaks.tar.gz" | sha256sum --check --status
+          tar -xzf "$RUNNER_TEMP/gitleaks.tar.gz" -C "$RUNNER_TEMP" gitleaks
+          GITLEAKS_BINARY="$RUNNER_TEMP/gitleaks" python -m unittest discover -s tests -v
+      - name: Frontend regression suite and production build
+        working-directory: frontend
+        run: |
+          npm ci
+          npm test
+          npm run build
+      - name: Product workflows and authentication in disposable browser installations
+        working-directory: frontend
+        env:
+          FINANCE_TEST_PYTHON: python
+        run: |
+          npx playwright install --with-deps chromium webkit firefox
+          export PLAYWRIGHT_CHROMIUM_EXECUTABLE="$(node --input-type=module -e "import { chromium } from '@playwright/test'; process.stdout.write(chromium.executablePath())")"
+          npx playwright test
+          npx playwright test --config playwright.auth.config.ts
+          npx playwright test --config playwright.setup.config.ts
+          npx playwright test --config playwright.webkit.config.ts
+          npx playwright test --config playwright.firefox.config.ts
+      - name: Verify private files stay outside Docker build inputs
+        run: python scripts/check_docker_contexts.py
+      - name: Build the distributable images
+        run: |
+          docker build -t ledger-ci-backend:verify backend
+          docker build -t ledger-ci-frontend:verify frontend
+      - name: Fresh image-only installation, enrollment, upgrade and encrypted restore
+        run: python scripts/smoke_distribution.py --backend-image ledger-ci-backend:verify --frontend-image ledger-ci-frontend:verify

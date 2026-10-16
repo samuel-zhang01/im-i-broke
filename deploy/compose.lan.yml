@@ -1,0 +1,27 @@
+# Explicit no-login mode for this trusted LAN. Never combine with public overlays.
+services:
+  backend:
+    environment:
+      FINANCE_DEPLOYMENT: trusted-lan
+      FINANCE_AUTH_ENABLED: "false"
+      FINANCE_PUBLIC_ORIGIN: ""
+      FINANCE_COOKIE_SECURE: "false"
+      FINANCE_BIND_ADDRESS: ${FINANCE_BIND_ADDRESS:-127.0.0.1}
+    develop:
+      watch:
+        - action: rebuild
+          path: ./backend/app
+          ignore: [__pycache__/]
+        - action: rebuild
+          path: ./backend/scripts
+          ignore: [__pycache__/]
+        - action: rebuild
+          path: ./backend/requirements.txt
+  frontend:
+    volumes:
+      - ./deploy/lan-access.conf:/etc/nginx/access-policy.conf:ro
+    develop:
+      watch:
+        - action: rebuild
+          path: ./frontend
+          ignore: [node_modules/, dist/, .vite/, '*.tsbuildinfo', tests/, e2e/, e2e-auth/]

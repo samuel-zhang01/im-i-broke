@@ -1,0 +1,13 @@
+# Host-based TLS proxy. Requires Docker Compose 2.24.4+ (!override).
+# Usage from repo root: docker compose -f docker-compose.yml -f deploy/compose.public.yml ...
+services:
+  backend:
+    environment:
+      FINANCE_DEPLOYMENT: public
+      FINANCE_AUTH_ENABLED: "true"
+      FINANCE_COOKIE_SECURE: "true"
+      FINANCE_PUBLIC_ORIGIN: https://${FINANCE_DOMAIN:?Set FINANCE_DOMAIN to the Ledger subdomain}
+      FINANCE_ALLOWED_HOSTS: ${FINANCE_DOMAIN},localhost,127.0.0.1,backend
+  frontend:
+    ports: !override
+      - "127.0.0.1:${FINANCE_TLS_UPSTREAM_PORT:-18080}:8080"

@@ -1,0 +1,62 @@
+.disclosure {
+  min-width: 0;
+  border: 1px solid #d8ddd5;
+  border-radius: 12px;
+  background: #fff;
+}
+.disclosure-summary {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: inherit;
+  cursor: pointer;
+  list-style: none;
+  scroll-margin-top: 6rem;
+  transition: background-color 150ms;
+}
+.disclosure-summary::-webkit-details-marker { display: none; }
+.disclosure-summary:hover { background: #f5f4ef; }
+.disclosure-summary:focus-visible {
+  outline: 2px solid #af4321;
+  outline-offset: -3px;
+}
+.disclosure-label { min-width: 0; flex: 1; }
+.disclosure-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #252c28;
+  overflow-wrap: anywhere;
+}
+.disclosure-description {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #606960;
+}
+.disclosure-icon {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #eceee8;
+  color: #606960;
+}
+.disclosure-chevron { color: #606960; transition: transform 150ms; }
+.disclosure[open] > .disclosure-summary { border-radius: 12px 12px 0 0; }
+.disclosure[open] > .disclosure-summary .disclosure-chevron { transform: rotate(90deg); }
+.disclosure[open] > .disclosure-summary .disclosure-icon { background: #af432119; color: #af4321; }
+.disclosure-content { min-width: 0; padding: 16px; border-top: 1px solid #d8ddd5; }
+.disclosure--plain { border-width: 1px 0 0; border-radius: 0; background: transparent; }
+.disclosure--plain > .disclosure-summary { padding-right: 0; padding-left: 0; border-radius: 0; }
+.disclosure--plain > .disclosure-content { padding: 0 0 12px; border-top: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .disclosure-summary, .disclosure-chevron { transition: none; }
+}

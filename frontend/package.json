@@ -1,0 +1,42 @@
+{
+  "name": "im-i-broke-frontend",
+  "private": true,
+  "version": "1.0.5",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.config.ts",
+    "build": "tsc -b && vite build --config vite.config.ts",
+    "test": "node --test tests/*.test.mjs",
+    "preview": "vite preview --config vite.config.ts",
+    "test:e2e": "npm run build && playwright test",
+    "test:setup": "npm run build && playwright test --config playwright.setup.config.ts",
+    "test:auth": "npm run build && playwright test --config playwright.auth.config.ts",
+    "test:webkit": "npm run build && playwright test --config playwright.webkit.config.ts",
+    "test:firefox": "npm run build && playwright test --config playwright.firefox.config.ts",
+    "test:performance": "npm run build && playwright test e2e/loading-stability.spec.ts e2e/performance-diagnostics.spec.ts"
+  },
+  "dependencies": {
+    "echarts": "^6.1.0",
+    "echarts-for-react": "^3.0.2",
+    "qrcode.react": "4.2.0",
+    "re2js": "2.8.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "web-vitals": "6.2.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^6.1.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.6.3",
+    "vite": "^8.3.0"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "license": "AGPL-3.0-only"
+}

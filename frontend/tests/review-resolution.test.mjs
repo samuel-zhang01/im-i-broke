@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import {sourceModule} from './source-module.mjs';
+const {api} = await sourceModule('api');
+const {watchData} = await sourceModule('dataEvents');
+test('resolve and reopen send only outcome, notify on success, and history is a read', async t => {
+  const previous=globalThis.fetch; const requests=[]; let changes=0;
+  const stop=watchData(()=>changes++);
+  t.after(()=>{globalThis.fetch=previous;stop();});
+  globalThis.fetch=async (url,options)=>{requests.push({url,options});return new Response(JSON.stringify({}),{status:200});};
+  await api.saveReview(42,{resolution:'expected'});
+  await api.saveReview(42,{resolution:'pending'});
+  await api.anomalies('resolved');
+  assert.deepEqual(JSON.parse(requests[0].options.body),{resolution:'expected'});
+  assert.deepEqual(JSON.parse(requests[1].options.body),{resolution:'pending'});
+  assert.match(requests[2].url,/anomalies\?status=resolved$/);
+  assert.equal(changes,2);
+  globalThis.fetch=async()=>new Response(JSON.stringify({detail:'No longer flagged'}),{status:409});
+  await assert.rejects(api.saveReview(42,{resolution:'expected'}),/No longer flagged/);
+  assert.equal(changes,2);
+});

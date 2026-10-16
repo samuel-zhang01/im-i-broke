@@ -1,0 +1,20 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { sourceModule } from './source-module.mjs';
+const {readInboxPreference: read, writeInboxPreference: write} = await sourceModule('inboxPreferences');
+test('inbox preferences survive remount reads and reject broken storage values', t => {
+  const previous = globalThis.sessionStorage;
+  const values = new Map();
+  globalThis.sessionStorage = {getItem: k => values.get(k) ?? null, setItem: (k,v) => values.set(k,v)};
+  t.after(() => { globalThis.sessionStorage = previous; });
+  write('search', 'TfL'); write('repeated', true); write('limit', 40);
+  assert.equal(read('search',''), 'TfL'); assert.equal(read('repeated',false),true); assert.equal(read('limit',15),40);
+  write('sort','unknown'); assert.equal(read('sort','outgoing'),'outgoing');
+  write('filter','unknown'); assert.equal(read('filter','uncategorized'),'uncategorized');
+  write('limit',1.5); assert.equal(read('limit',15),15);
+  values.set('ledger.inbox.limit','-5'); assert.equal(read('limit',15),15);
+  values.set('ledger.inbox.repeated','"true"'); assert.equal(read('repeated',false),false);
+  values.set('ledger.inbox.search','broken JSON'); assert.equal(read('search',''), '');
+  globalThis.sessionStorage = {getItem() {throw Error('disabled');}, setItem() {throw Error('disabled');}};
+  assert.equal(read('search',''), ''); assert.doesNotThrow(() => write('search','TfL'));
+});

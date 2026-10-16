@@ -1,0 +1,20 @@
+# Existing containerized TLS proxy; no Ledger host port is published.
+# Connect that proxy to ledger-edge separately and route to ledger-web:8080.
+services:
+  backend:
+    environment:
+      FINANCE_DEPLOYMENT: public
+      FINANCE_AUTH_ENABLED: "true"
+      FINANCE_COOKIE_SECURE: "true"
+      FINANCE_PUBLIC_ORIGIN: https://${FINANCE_DOMAIN:?Set FINANCE_DOMAIN to the Ledger subdomain}
+      FINANCE_ALLOWED_HOSTS: ${FINANCE_DOMAIN},localhost,127.0.0.1,backend
+  frontend:
+    ports: !reset []
+    networks:
+      default: {}
+      proxy:
+        aliases: [ledger-web]
+networks:
+  proxy:
+    external: true
+    name: ${FINANCE_PROXY_NETWORK:-ledger-edge}

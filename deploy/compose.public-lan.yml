@@ -1,0 +1,14 @@
+# Authenticated origin for an HTTPS proxy reaching this host's private IP/port.
+# Do not combine with compose.lan.yml: this profile keeps application login ON.
+# The external proxy must preserve Host and use HTTP to this upstream.
+services:
+  backend:
+    environment:
+      FINANCE_DEPLOYMENT: public
+      FINANCE_AUTH_ENABLED: "true"
+      FINANCE_COOKIE_SECURE: "true"
+      FINANCE_PUBLIC_ORIGIN: https://${FINANCE_DOMAIN:?Set FINANCE_DOMAIN to the Ledger subdomain}
+      FINANCE_ALLOWED_HOSTS: ${FINANCE_DOMAIN},localhost,127.0.0.1,backend,${FINANCE_BIND_ADDRESS:?Set the private origin IP}
+  frontend:
+    ports: !override
+      - "${FINANCE_BIND_ADDRESS:?Set the private origin IP}:${FINANCE_PORT:-200}:8080"

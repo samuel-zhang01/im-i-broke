@@ -1,0 +1,745 @@
+{
+  "snaptrade_catalog_source": "https://snaptrade.com/brokerage-integrations",
+  "checked_on": "2026-09-23",
+  "institutions": [
+    {
+      "slug": "aj-bell",
+      "name": "AJ Bell",
+      "aliases": [
+        "AJ Bell",
+        "AJ Bell Youinvest",
+        "AJBell"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/aj-bell-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/Z5OcV5bqstJ990lD_ajbell.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "alpaca",
+      "name": "Alpaca",
+      "aliases": [
+        "Alpaca",
+        "Alpaca Paper"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/alpaca-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ZqgM6h5LeNNTxk_p_alpacadb_inc__logo.jpg?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "american-express",
+      "name": "American Express",
+      "aliases": [
+        "American Express",
+        "AmericanExpress",
+        "Amex"
+      ],
+      "providers": [
+        "lunchflow"
+      ],
+      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fb/ca/14/fbca14f8-b632-998e-bfb2-af319e1988ee/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "image_source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fb/ca/14/fbca14f8-b632-998e-bfb2-af319e1988ee/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "retrieved_on": "2026-09-19"
+    },
+    {
+      "slug": "barclays",
+      "name": "Barclays",
+      "aliases": [
+        "Barclays",
+        "Barclaycard",
+        "Barclays Bank"
+      ],
+      "providers": [
+        "lunchflow"
+      ],
+      "source": "https://www.barclays.co.uk/content/dam/icons/favicons/barclays/apple-touch-icon-180x180.png",
+      "image_source": "https://www.barclays.co.uk/content/dam/icons/favicons/barclays/apple-touch-icon-180x180.png",
+      "retrieved_on": "2026-09-19"
+    },
+    {
+      "slug": "binance",
+      "name": "Binance",
+      "aliases": [
+        "Binance"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/binance-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ZthQVLzzk9ZrW-lf_Binance_Logo.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "bmo",
+      "name": "BMO InvestorLine",
+      "aliases": [
+        "BMO InvestorLine",
+        "Bank of Montreal"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/bmo-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/sX-2znJc8thUvRxp_BMOlogo.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "bux",
+      "name": "BUX",
+      "aliases": [
+        "BUX",
+        "BUX Zero"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/bux-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ZqfrTx5LeNNTxk0d_BUX-featured-image.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "chase",
+      "name": "Chase",
+      "aliases": [
+        "Chase",
+        "J.P. Morgan",
+        "JP Morgan",
+        "JPMorgan Chase"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/chase-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ZwPoRLVsGrYSwct1_jpmorgan-chase-bank-logo.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "cibc",
+      "name": "CIBC Investor's Edge",
+      "aliases": [
+        "CIBC",
+        "CIBC Investor's Edge",
+        "CIBC Investor’s Edge"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/cibc-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ze55InTQ451f62ea_CIBClogo.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "citi",
+      "name": "Citi",
+      "aliases": [
+        "Citi",
+        "Citi Self Invest",
+        "Citibank"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/citi-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ah7bggeQX7-eWjYX_CitiLogo.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "coinbase",
+      "name": "Coinbase",
+      "aliases": [
+        "Coinbase"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/coinbase-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ZthOhrzzk9ZrW-j7_coinbase-coin-logo-C86F46D7B8-seeklogo.com.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "commsec",
+      "name": "Commsec",
+      "aliases": [
+        "Commonwealth Securities",
+        "Commsec"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/commsec-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ZqfsFB5LeNNTxk0q_commsec-logo-square.jpg?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "dbs",
+      "name": "DBS",
+      "aliases": [
+        "DBS",
+        "DBS Bank",
+        "POSB"
+      ],
+      "providers": [
+        "lunchflow"
+      ],
+      "source": "https://en.wikipedia.org/wiki/File:DBS_Bank_Logo_(alternative).svg",
+      "image_source": "https://upload.wikimedia.org/wikipedia/en/b/b1/DBS_Bank_Logo_%28alternative%29.svg",
+      "retrieved_on": "2026-09-28"
+    },
+    {
+      "slug": "degiro",
+      "name": "DEGIRO",
+      "aliases": [
+        "DEGIRO"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/degiro-api",
+      "image_source": "https://www.degiro.co.uk/apple-touch-icon.png?5",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "edward-jones",
+      "name": "Edward Jones",
+      "aliases": [
+        "Edward Jones"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/edward-jones-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ah7kNAeQX7-eWjve_EdwardJones.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "empower",
+      "name": "Empower",
+      "aliases": [
+        "Empower"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/empower-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/Z5kJG5bqstJ9983P_images-1-.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "etoro",
+      "name": "eToro",
+      "aliases": [
+        "eToro"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/etoro-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/sHcR8VMW-3KgcC5d_etoro-logo-square--no-pad.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "etrade",
+      "name": "E*TRADE",
+      "aliases": [
+        "E Trade",
+        "E*TRADE",
+        "ETrade Financial"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/etrade-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ZqftNx5LeNNTxk1F_etrade_logo.jpg?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "fidelity",
+      "name": "Fidelity",
+      "aliases": [
+        "Fidelity",
+        "Fidelity Investments",
+        "Fidelity NetBenefits"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/fidelity-api",
+      "image_source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2f/9c/f2/2f9cf254-e9a4-0231-eea2-fdaf709d2296/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "retrieved_on": "2026-09-28",
+      "curated_artwork": true
+    },
+    {
+      "slug": "hargreaves-lansdown",
+      "name": "Hargreaves Lansdown",
+      "aliases": [
+        "HL",
+        "Hargreaves Lansdown"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/hargreaves-lansdown",
+      "image_source": "https://snaptrade-v3.cdn.prismic.io/snaptrade-v3/lNxlcg3t3YWjsHLO_Hargreaves_Lansdown_logo.svg",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "hsbc",
+      "name": "HSBC",
+      "aliases": [
+        "HSBC",
+        "HSBC Bank"
+      ],
+      "providers": [
+        "lunchflow"
+      ],
+      "source": "https://www.hsbc.co.uk/etc.clientlibs/dpws/clientlibs-public/clientlib-site/resources/favicons/apple-touch-icon.png",
+      "image_source": "https://www.hsbc.co.uk/etc.clientlibs/dpws/clientlibs-public/clientlib-site/resources/favicons/apple-touch-icon.png",
+      "retrieved_on": "2026-09-19"
+    },
+    {
+      "slug": "ibkr",
+      "name": "Interactive Brokers",
+      "aliases": [
+        "IBKR",
+        "Interactive Brokers",
+        "InteractiveBrokers"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/ibkr-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ZtmmQbzzk9ZrXCz8_51q7eieUfKL.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "kraken",
+      "name": "Kraken",
+      "aliases": [
+        "Kraken"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/kraken-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ZuNJLLVsGrYSvUJk_Kraken-icon.avif?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "lloyds",
+      "name": "Lloyds",
+      "aliases": [
+        "Lloyds",
+        "Lloyds Bank"
+      ],
+      "providers": [
+        "lunchflow"
+      ],
+      "source": "https://www.lloydsbank.com/content/dam/lloyds/personal/lloyds-personal-app-logo1.png",
+      "image_source": "https://www.lloydsbank.com/content/dam/lloyds/personal/lloyds-personal-app-logo1.png",
+      "retrieved_on": "2026-09-19"
+    },
+    {
+      "slug": "lunchflow",
+      "name": "Lunch Flow",
+      "aliases": [
+        "Lunch Flow",
+        "LunchFlow"
+      ],
+      "providers": [],
+      "source": "https://www.lunchflow.app/",
+      "image_source": "https://www.lunchflow.app/",
+      "retrieved_on": "2026-09-28"
+    },
+    {
+      "slug": "monzo",
+      "name": "Monzo",
+      "aliases": [
+        "Monzo",
+        "Monzo Bank"
+      ],
+      "providers": [
+        "lunchflow"
+      ],
+      "source": "https://apps.apple.com/us/app/monzo-bank-mobile-banking/id1052238659",
+      "image_source": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9a/48/21/9a48211e-2dab-eb4b-f3d5-3dc94b15afb2/AppIconProd-0-0-1x_U007ephone-0-1-0-0-sRGB-85-220.png/512x512bb.jpg",
+      "retrieved_on": "2026-09-28"
+    },
+    {
+      "slug": "moomoo",
+      "name": "Moomoo",
+      "aliases": [
+        "Futu",
+        "Futu Securities",
+        "Moomoo"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/moomoo-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/aR82nGGnmrmGqFT__moomoo.jpg?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "national-bank-direct-brokerage",
+      "name": "National Bank Direct Brokerage ",
+      "aliases": [
+        "National Bank Direct Brokerage "
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/national-bank-direct-brokerage",
+      "image_source": "https://images.prismic.io/snaptrade-v3/x-CV-_gPmxv2aAg5_NationalBank.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "pnc",
+      "name": "PNC",
+      "aliases": [
+        "PNC"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/pnc-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ah7hdweQX7-eWjoK_PNClogo.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "public",
+      "name": "Public",
+      "aliases": [
+        "Public",
+        "Public Investing",
+        "Public.com"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/public-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/Z1mMK5bqstJ98UtC_images.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "qtrade",
+      "name": "Qtrade",
+      "aliases": [
+        "Qtrade"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/qtrade",
+      "image_source": "https://snaptrade-v3.cdn.prismic.io/snaptrade-v3/LLf7BRZkqOPWxRdM_Qtrade.svg",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "questrade",
+      "name": "Questrade",
+      "aliases": [
+        "Questrade"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/questrade-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/DBVNmXp7yscD9382_questrade-logo-square.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "revolut",
+      "name": "Revolut",
+      "aliases": [
+        "Revolut"
+      ],
+      "providers": [
+        "lunchflow"
+      ],
+      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/7c/14/1f7c1428-a432-8d16-9b55-0cb08bd77575/AppIcon-Production-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "image_source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/7c/14/1f7c1428-a432-8d16-9b55-0cb08bd77575/AppIcon-Production-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "retrieved_on": "2026-09-19"
+    },
+    {
+      "slug": "robinhood",
+      "name": "Robinhood",
+      "aliases": [
+        "Robinhood"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/robinhood-api",
+      "image_source": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/46/8a/34/468a342e-f9e6-f716-122c-4ddb89dd13aa/AppIcon-0-0-1x_U007ephone-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+      "retrieved_on": "2026-09-28",
+      "curated_artwork": true
+    },
+    {
+      "slug": "schwab",
+      "name": "Schwab",
+      "aliases": [
+        "Charles Schwab",
+        "Schwab"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/schwab-api",
+      "image_source": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/15/88/f0/1588f05d-ae04-66f6-23f4-4f94bd99db52/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "retrieved_on": "2026-09-28",
+      "curated_artwork": true
+    },
+    {
+      "slug": "snaptrade",
+      "name": "SnapTrade",
+      "aliases": [
+        "SnapTrade"
+      ],
+      "providers": [],
+      "source": "https://snaptrade.com/brand",
+      "image_source": "https://snaptrade.com/brand/snaptrade-icon_master.png",
+      "retrieved_on": "2026-09-28"
+    },
+    {
+      "slug": "stake-aus",
+      "name": "Stake AUS",
+      "aliases": [
+        "Stake",
+        "Stake AUS",
+        "Stake Australia"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/stake-aus-api",
+      "image_source": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/14/fe/e814fedf-d559-d7a6-d03a-28b8483e26f5/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "retrieved_on": "2026-09-28",
+      "curated_artwork": true
+    },
+    {
+      "slug": "starling",
+      "name": "Starling",
+      "aliases": [
+        "Starling",
+        "Starling Bank"
+      ],
+      "providers": [
+        "lunchflow"
+      ],
+      "source": "https://www.starlingbank.com/media-library/sb-logo.png",
+      "image_source": "https://www.starlingbank.com/media-library/sb-logo.png",
+      "retrieved_on": "2026-09-19"
+    },
+    {
+      "slug": "tastytrade",
+      "name": "tastytrade",
+      "aliases": [
+        "Tastyworks",
+        "tastytrade"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/tastytrade-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/aDhlEydWJ-7kSr0q_https___cdn.evbuc.com_images_401527559_191644751948_1_original.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "tddirectinvesting",
+      "name": "TD Direct Investing",
+      "aliases": [
+        "TD",
+        "TD Direct Investing"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/tddirectinvesting-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/afodhMBOoF08xo3Z_TDlogo.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "tiaa",
+      "name": "TIAA",
+      "aliases": [
+        "TIAA"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/tiaa-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ah7iWAeQX7-eWjqy_TIAAlogo.jpeg?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "tradestation",
+      "name": "TradeStation",
+      "aliases": [
+        "TradeStation"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/tradestation-api",
+      "image_source": "https://snaptrade-v3.cdn.prismic.io/snaptrade-v3/aeqoWMBOoF08xQ7A_TS-Logo-Symbol-RGB.svg",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "tradier",
+      "name": "Tradier",
+      "aliases": [
+        "Tradier"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/tradier-api",
+      "image_source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0e/48/fc/0e48fc79-d719-e24f-1954-73eddfb4ae4d/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "retrieved_on": "2026-09-28",
+      "curated_artwork": true
+    },
+    {
+      "slug": "trading212",
+      "name": "Trading 212",
+      "aliases": [
+        "T212",
+        "Trading 212",
+        "Trading212"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/trading212-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ZqfwGx5LeNNTxk2H_trading212-logo-square.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "transamerica",
+      "name": "Transamerica",
+      "aliases": [
+        "Transamerica"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/transamerica-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ah7lggeQX7-eWjyV_Transamericalogo.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "upstox",
+      "name": "Upstox",
+      "aliases": [
+        "Upstox"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/upstox-api",
+      "image_source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/2b/68/cf2b6889-9ebc-aba6-37a7-3f2c9e2e0db8/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "retrieved_on": "2026-09-28",
+      "curated_artwork": true
+    },
+    {
+      "slug": "us-bank",
+      "name": "US Bank",
+      "aliases": [
+        "U.S. Bancorp",
+        "U.S. Bank",
+        "US Bank"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/us-bank-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ah7gMgeQX7-eWjmT_USBanklogo.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "vanguard",
+      "name": "Vanguard US",
+      "aliases": [
+        "Vanguard",
+        "Vanguard US"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/vanguard-api",
+      "image_source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4a/ef/6f/4aef6fc9-5193-b42a-4527-a7e6a0ee58d9/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg",
+      "retrieved_on": "2026-09-28",
+      "curated_artwork": true
+    },
+    {
+      "slug": "wealthsimple",
+      "name": "Wealthsimple",
+      "aliases": [
+        "Wealthsimple"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/wealthsimple-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ZqgOBh5LeNNTxk_0_WST.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "webull",
+      "name": "Webull US",
+      "aliases": [
+        "Webull",
+        "Webull US"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/webull-api",
+      "image_source": "https://snaptrade-v3.cdn.prismic.io/snaptrade-v3/ZqKSER5LeNNTxgNb_Webull.svg?auto=compress,format",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "webull-ca",
+      "name": "Webull Canada",
+      "aliases": [
+        "Webull CA",
+        "Webull Canada"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/webull-ca-api",
+      "image_source": "https://snaptrade-v3.cdn.prismic.io/snaptrade-v3/ZqKSER5LeNNTxgNb_Webull.svg",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "wellsfargo",
+      "name": "Wells Fargo",
+      "aliases": [
+        "Wells Fargo"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/wellsfargo-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/Z08ADpbqstJ97_Kx_Wells_Fargo_Logo_-2020-.svg.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    },
+    {
+      "slug": "zerodha",
+      "name": "Zerodha",
+      "aliases": [
+        "Zerodha"
+      ],
+      "providers": [
+        "snaptrade"
+      ],
+      "source": "https://snaptrade.com/brokerage-integrations/zerodha-api",
+      "image_source": "https://images.prismic.io/snaptrade-v3/ZqgPNR5LeNNTxk_9_Zerodha.png?auto=format,compress",
+      "retrieved_on": "2026-09-23"
+    }
+  ]
+}

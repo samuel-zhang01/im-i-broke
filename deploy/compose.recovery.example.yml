@@ -1,0 +1,14 @@
+# Use only with compose.product.yml in a NEW recovery project, ID and port.
+# FINANCE_RECOVERY_ROOT must point at the reviewed, private restore destination.
+# Restore data/auth/uploads and the MATCHING separate auth.key before startup.
+services:
+  backend:
+    volumes:
+      - ${FINANCE_RECOVERY_ROOT:?Set a new private recovery root}/data:/app/data
+      - ${FINANCE_RECOVERY_ROOT:?Set a new private recovery root}/data/uploads:/app/uploads
+      - ${FINANCE_RECOVERY_ROOT:?Set a new private recovery root}/keys:/app/keys:ro
+  admin:
+    volumes:
+      - ${FINANCE_RECOVERY_ROOT:?Set a new private recovery root}/data:/app/data
+      - ${FINANCE_RECOVERY_ROOT:?Set a new private recovery root}/data/uploads:/app/uploads
+      - ${FINANCE_RECOVERY_ROOT:?Set a new private recovery root}/keys:/app/keys

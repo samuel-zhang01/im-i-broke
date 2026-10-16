@@ -1,0 +1,125 @@
+# See docs/DEPLOYMENT.md before migrating existing volumes to UID 10001.
+x-backend: &backend
+  build:
+    context: ./backend
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,nodev,size=256m,mode=1777
+  pids_limit: 96
+  mem_limit: 1g
+  cpus: 2
+  logging:
+    driver: json-file
+    options: {max-size: "5m", max-file: "3"}
+  environment: &environment
+    FINANCE_DEPLOYMENT: ${FINANCE_DEPLOYMENT:-local}
+    FINANCE_PUBLIC_ORIGIN: ${FINANCE_PUBLIC_ORIGIN:-}
+    FINANCE_COOKIE_SECURE: ${FINANCE_COOKIE_SECURE:-true}
+    FINANCE_DB_PATH: /app/data/finance.db
+    FINANCE_UPLOADS_PATH: /app/uploads
+    FINANCE_AUTH_KEY_PATH: /app/keys/auth.key
+    FINANCE_ALLOWED_HOSTS: ${FINANCE_ALLOWED_HOSTS:-localhost,127.0.0.1,[::1],backend}
+
+services:
+  backend:
+    <<: *backend
+    environment:
+      <<: *environment
+      SNAPTRADE_ID: ${SNAPTRADE_ID:-}
+      SNAPTRADE_KEY: ${SNAPTRADE_KEY:-}
+      SNAPTRADE_SYNC_SECONDS: ${SNAPTRADE_SYNC_SECONDS:-600}
+      INVESTMENT_PRICE_REFRESH_SECONDS: ${INVESTMENT_PRICE_REFRESH_SECONDS:-900}
+      LUNCH_FLOW_API: ${LUNCH_FLOW_API:-}
+      LUNCH_FLOW_SYNC_SECONDS: ${LUNCH_FLOW_SYNC_SECONDS:-21600}
+    volumes:
+      - dbdata:/app/data
+      - uploads:/app/uploads
+      - authkeys:/app/keys:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health', timeout=4)"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "${FINANCE_BIND_ADDRESS:-127.0.0.1}:${FINANCE_PORT:-8080}:8080"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=256m,mode=1777
+    pids_limit: 32
+    mem_limit: 384m
+    cpus: 1
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "3"}
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  # Offline permission migration: run only with backend stopped; never serves HTTP.
+  storage-init:
+    <<: *backend
+    profiles: [maintenance]
+    user: "0:0"
+    cap_add: [CHOWN, FOWNER, DAC_OVERRIDE]
+    network_mode: none
+    command: [python, -m, scripts.initialize_storage]
+    volumes:
+      - dbdata:/app/data
+      - uploads:/app/uploads
+      - authkeys:/app/keys
+    restart: "no"
+
+  # Only this terminal-only service can write the authentication key volume.
+  auth-admin:
+    <<: *backend
+    profiles: [maintenance]
+    network_mode: none
+    command: [python, -m, scripts.auth, setup]
+    volumes:
+      - dbdata:/app/data
+      - authkeys:/app/keys
+    restart: "no"
+
+  backup:
+    <<: *backend
+    profiles: [maintenance]
+    network_mode: none
+    command: [python, -m, scripts.secure_backup, --help]
+    volumes:
+      - dbdata:/app/data
+      - uploads:/app/uploads:ro
+      - backups:/app/backups
+    restart: "no"
+
+  import:
+    <<: *backend
+    profiles: [import]
+    network_mode: none
+    command: [python, -m, app.build_db, /data, /app/uploads]
+    volumes:
+      - dbdata:/app/data
+      - uploads:/app/uploads:ro
+      - ./Data:/data:ro
+    restart: "no"
+
+volumes:
+  dbdata:
+  uploads:
+  authkeys:
+  backups:

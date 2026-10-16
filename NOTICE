@@ -1,0 +1,11 @@
+Am I Broke?
+Copyright (C) 2026 Am I Broke? contributors
+
+Project code is licensed under the GNU Affero General Public License,
+version 3 (SPDX-License-Identifier: AGPL-3.0-only). See LICENSE.
+
+Third-party dependencies retain their own licenses. Institution names and
+logos belong to their respective owners and are not granted an AGPL license
+by this project. Their sources are recorded in
+frontend/public/logos/SOURCES.md and frontend/src/institutionCatalog.json.
+No affiliation with or endorsement by those institutions is implied.

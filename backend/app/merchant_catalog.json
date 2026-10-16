@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "merchants": [
+    {
+      "id": "tesco",
+      "canonical_name": "Tesco",
+      "kind": "merchant",
+      "category": "Groceries",
+      "confidence": 0.9,
+      "source_url": "https://www.tesco.com/",
+      "notes": "General starter rule. Review individual purchases; a business name is not item-level evidence.",
+      "aliases": [
+        {
+          "pattern": "TESCO",
+          "match_mode": "prefix",
+          "context": "spending"
+        }
+      ]
+    },
+    {
+      "id": "amazon",
+      "canonical_name": "Amazon",
+      "kind": "merchant",
+      "category": "Shopping",
+      "confidence": 0.9,
+      "source_url": "https://www.amazon.com/",
+      "notes": "General starter rule. Review individual purchases; a business name is not item-level evidence.",
+      "aliases": [
+        {
+          "pattern": "AMAZON",
+          "match_mode": "prefix",
+          "context": "spending"
+        }
+      ]
+    },
+    {
+      "id": "netflix",
+      "canonical_name": "Netflix",
+      "kind": "merchant",
+      "category": "Subscriptions",
+      "confidence": 0.9,
+      "source_url": "https://www.netflix.com/",
+      "notes": "General starter rule. Review individual purchases; a business name is not item-level evidence.",
+      "aliases": [
+        {
+          "pattern": "NETFLIX",
+          "match_mode": "prefix",
+          "context": "spending"
+        }
+      ]
+    },
+    {
+      "id": "spotify",
+      "canonical_name": "Spotify",
+      "kind": "merchant",
+      "category": "Subscriptions",
+      "confidence": 0.9,
+      "source_url": "https://www.spotify.com/",
+      "notes": "General starter rule. Review individual purchases; a business name is not item-level evidence.",
+      "aliases": [
+        {
+          "pattern": "SPOTIFY",
+          "match_mode": "prefix",
+          "context": "spending"
+        }
+      ]
+    },
+    {
+      "id": "trip-com",
+      "canonical_name": "Trip.com",
+      "kind": "merchant",
+      "category": "Travel",
+      "confidence": 0.9,
+      "source_url": "https://www.trip.com/",
+      "notes": "General starter rule. Review individual purchases; a business name is not item-level evidence.",
+      "aliases": [
+        {
+          "pattern": "TRIP.COM",
+          "match_mode": "contains",
+          "context": "spending"
+        }
+      ]
+    },
+    {
+      "id": "openai",
+      "canonical_name": "OpenAI",
+      "kind": "merchant",
+      "category": "Subscriptions",
+      "confidence": 0.9,
+      "source_url": "https://openai.com/",
+      "notes": "General starter rule. Review individual purchases; a business name is not item-level evidence.",
+      "aliases": [
+        {
+          "pattern": "OPENAI",
+          "match_mode": "contains",
+          "context": "spending"
+        }
+      ]
+    }
+  ]
+}

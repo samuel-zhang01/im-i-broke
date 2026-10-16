@@ -1,0 +1,37 @@
+import { expect, test } from '@playwright/test';
+
+test('settings explains closed sections, keeps drafts and moves keyboard focus to shortcuts', async ({ page }, info) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/#settings');
+  await expect(page.getByRole('heading', { name: 'Your accounts & data', exact: true })).toBeVisible();
+  const preferences = page.locator('#settings-preferences');
+  await expect(preferences).not.toHaveAttribute('open');
+  await expect(page.getByText('Your reporting currency, number formats and time zone.', { exact: true })).toBeVisible();
+  await expect(page.getByLabel('Reporting currency', { exact: true })).toHaveCount(0);
+  await page.screenshot({ path: info.outputPath('settings-overview.png'), fullPage: true });
+  const summary = preferences.locator('summary');
+  await summary.focus();
+  await page.keyboard.press('Enter');
+  const currency = page.getByLabel('Reporting currency', { exact: true });
+  const stored = await (await page.request.get('/api/workspace/preferences')).json();
+  const draft = stored.reporting_currency === 'EUR' ? 'USD' : 'EUR';
+  await currency.fill(draft);
+  await summary.click();
+  await expect(currency).toBeHidden();
+  await page.getByRole('button', { name: 'Connect an account', exact: true }).click();
+  await expect(page.locator('#settings-connections > summary')).toBeFocused();
+  await expect(page.getByRole('button', { name: 'Add provider connection', exact: true })).toBeVisible();
+  await summary.click();
+  await expect(currency).toHaveValue(draft);
+  expect((await (await page.request.get('/api/workspace/preferences')).json()).reporting_currency).toBe(stored.reporting_currency);
+  await page.getByRole('button', { name: 'Set up a manual account', exact: false }).click();
+  await expect(page.locator('#settings-accounts > summary')).toBeFocused();
+  await page.getByRole('button', { name: 'Add manual account', exact: true }).click();
+  await page.getByLabel('Account name', { exact: true }).fill('Unfinished account');
+  await page.locator('#settings-accounts > summary').click();
+  await page.getByRole('button', { name: 'Set up a manual account', exact: false }).click();
+  await expect(page.getByLabel('Account name', { exact: true })).toHaveValue('Unfinished account');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  expect(errors).toEqual([]);
+});
