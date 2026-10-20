@@ -262,7 +262,7 @@ export function Modal({
         aria-modal="true"
         aria-label={title}
         tabIndex={-1}
-        className="modal-panel flex max-h-[calc(100dvh-1.5rem)] w-full min-w-0 max-w-2xl flex-col overflow-hidden rounded-xl border border-line bg-white shadow-xl outline-none sm:max-h-[calc(100dvh-3rem)]"
+        className="modal-panel flex max-h-[calc(100dvh-1.5rem)] w-full min-w-0 max-w-2xl flex-col overflow-hidden rounded-xl border border-line bg-white shadow-xl outline-hidden sm:max-h-[calc(100dvh-3rem)]"
         onKeyDown={(e) => {
           if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); onClose(); }
           trapDialogFocus(e);

@@ -13,7 +13,7 @@ export default function GettingStarted({ onChoose, onDismiss }: { onChoose: (sec
   return <section aria-labelledby="getting-started-title" className="overflow-hidden rounded-2xl border border-line bg-white">
     <div className="border-b border-line bg-surface2/60 p-5 sm:p-6">
       <p className="eyebrow mb-2">A little setup. A clearer picture.</p>
-      <Heading ref={heading} tabIndex={-1} className="outline-none" id="getting-started-title" level={2} variant="intro">Welcome to your workspace</Heading>
+      <Heading ref={heading} tabIndex={-1} className="outline-hidden" id="getting-started-title" level={2} variant="intro">Welcome to your workspace</Heading>
       <p className="mt-2 max-w-xl text-sm leading-relaxed text-mist">Start with one account. Add connections or import older transactions when you’re ready.</p>
       <button className="mt-3 min-h-11 text-left text-sm font-medium text-teal underline decoration-teal/30 underline-offset-4" onClick={() => onChoose("preferences")}>{preferences.data?.reporting_currency ? `Reporting in ${preferences.data.reporting_currency} · Change preferences` : "Choose your currency and preferences"}</button>
     </div>

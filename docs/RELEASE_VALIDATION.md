@@ -52,3 +52,30 @@ client retains its upstream Starlette/httpx deprecation notice.
 Full browser-engine suites on this public revision, live providers, external
 DNS/TLS, physical devices and assistive technology are outside the local focused
 verification above. See [known limitations](KNOWN_LIMITATIONS.md).
+
+## Tailwind 4 migration — 20 October 2026
+
+The dependency PR upgraded Tailwind without its PostCSS integration, causing
+the production build to fail. The migration adds `@tailwindcss/postcss`, uses
+the v4 CSS import and explicitly loads the existing theme. It preserves the
+small-shadow/radius settings, border and pointer defaults, primary-button
+styles and forced-colors-compatible hidden outlines.
+
+Checks use disposable synthetic storage and fresh browser profiles. No
+household installation or provider credentials are used.
+
+| Check | Result |
+| --- | --- |
+| Production frontend | TypeScript and Vite build passed on Node 22.22.2 |
+| Frontend units | 156 passed |
+| npm audit | Zero advisories in the full locked graph and production-only graph |
+| Chromium desktop/phone UI | 63 passed; one existing desktop-inapplicable case skipped |
+| WebKit desktop/iPhone UI | 46 layout, dialog and keyboard checks passed |
+| Firefox desktop/narrow UI | 46 layout, dialog and keyboard checks passed |
+| Fresh-owner setup | Eight passed across desktop/phone Chromium and WebKit |
+| Authentication/recovery | One Chromium scenario passed |
+
+These local results do not replace the GitHub-hosted production-image and
+distribution gates. The existing large-chart-chunk warning remains. Browser
+emulation does not certify physical devices, assistive technology or older
+engines outside Tailwind 4's supported browser baseline.

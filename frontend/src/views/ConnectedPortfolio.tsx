@@ -196,7 +196,7 @@ export default function ConnectedPortfolio({ initialAccountId, initialSection }:
     {(error || refreshMessages.length > 0) && <p role="alert" className="text-xs text-amber">{error ? "Update failed. Saved data remains visible." : "Refresh incomplete. Saved data remains available."} <button className="underline" onClick={openNotes}>Details</button>{!coolingDown && <button className="ml-2 underline" onClick={retryRequest}>Retry</button>}</p>}
     {loading && !data && <PageSkeleton variant={analyticsTab ? "portfolio" : "table"} label="Loading your saved portfolio…" />}
     {data && <div aria-busy={loading} className="async-content content-enter">
-      <section id={`portfolio-panel-${primary}`} role="tabpanel" aria-labelledby={`portfolio-tab-${primary}`} tabIndex={0} className="min-w-0 outline-none">
+      <section id={`portfolio-panel-${primary}`} role="tabpanel" aria-labelledby={`portfolio-tab-${primary}`} tabIndex={0} className="min-w-0 outline-hidden">
         {tab === "connections" ? <ConnectionStatus accounts={accounts} connections={data.connections} selectedAccount={selected} currency={currency} revision={dataRevision} />
           : tab === "saved-activity" ? <SavedInvestmentActivity accounts={accounts} scope={selected} revision={dataRevision} />
           : tab === "calendar" ? <InvestmentCalendar accountIds={accounts.map((account) => account.id)} currency={currency} revision={dataRevision} />
