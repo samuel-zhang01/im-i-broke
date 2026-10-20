@@ -26,7 +26,7 @@ function ReviewComparison({ item, onResolved, onSaving, loading }: {
     <div className="grid items-stretch gap-3 lg:grid-cols-2">
       <section aria-label="Bank transaction" className="min-w-0 rounded-lg border border-line bg-deep/40 p-3">
         <p className="eyebrow">Bank transaction</p>
-        <div className="mt-2 flex flex-wrap items-start justify-between gap-2"><Heading level={4} variant="subsection" data-review-heading tabIndex={-1} className="min-w-0 break-words outline-none scroll-mt-24">{item.merchant || item.description || "Bank transaction"}</Heading><p className="text-base font-semibold tabular-nums">{nativeMoney(item.amount, item.currency)}</p></div>
+        <div className="mt-2 flex flex-wrap items-start justify-between gap-2"><Heading level={4} variant="subsection" data-review-heading tabIndex={-1} className="min-w-0 break-words outline-hidden scroll-mt-24">{item.merchant || item.description || "Bank transaction"}</Heading><p className="text-base font-semibold tabular-nums">{nativeMoney(item.amount, item.currency)}</p></div>
         <p className="mt-1 text-xs text-mist">{shortDate(item.date)} · {item.currency}{item.is_pending ? " · Pending" : " · Booked"}</p>
         {item.description && item.description !== item.merchant && <p className="mt-2 break-words text-xs leading-relaxed text-mist">{item.description}</p>}
       </section>

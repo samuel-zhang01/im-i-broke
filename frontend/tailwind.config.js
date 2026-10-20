@@ -29,7 +29,11 @@ export default {
         ],
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
-      boxShadow: { depth: "0 2px 5px rgba(30,40,30,0.025)" },
+      borderRadius: { sm: "0.125rem" },
+      boxShadow: {
+        sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        depth: "0 2px 5px rgba(30,40,30,0.025)",
+      },
     },
   },
   plugins: [],

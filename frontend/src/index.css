@@ -1,6 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: #e5e7eb;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
 :root {
   color-scheme: light;
 }
@@ -93,13 +105,13 @@ select {
     @apply inline-flex min-h-10 max-w-full items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium border border-line bg-white hover:bg-surface2 transition-colors;
   }
   .btn-primary {
-    @apply btn border-teal bg-teal text-white hover:bg-teal/90;
+    @apply inline-flex min-h-10 max-w-full items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium border border-teal bg-teal text-white hover:bg-teal/90 transition-colors;
   }
   .btn-quiet {
     @apply border-transparent bg-transparent text-teal hover:bg-surface2;
   }
   .input {
-    @apply min-w-0 max-w-full rounded-lg bg-white border border-line px-3 py-2 text-sm text-foam placeholder:text-mist/70 outline-none focus:border-teal;
+    @apply min-w-0 max-w-full rounded-lg bg-white border border-line px-3 py-2 text-sm text-foam placeholder:text-mist/70 outline-hidden focus:border-teal;
   }
   .eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.1em] text-mist;

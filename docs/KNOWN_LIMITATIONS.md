@@ -31,11 +31,14 @@ using financial reports or offering installations to others.
 - **Dependencies need continuing review.** Development tools and container bases
   can acquire advisories after a release. Consult the exact revision's CI and
   dependency alerts; older internal scans do not establish the current status.
-  On 16 October 2026, after the compatible source-map-js patch, the locked npm development graph
-  reported five high and
-  two moderate advisories; `npm audit --omit=dev` reported zero. The Tailwind 3
-  pattern/parser chain needs a reviewed migration; no major-version upgrade is
-  claimed here. See [validation](RELEASE_VALIDATION.md).
+  On 20 October 2026, the Tailwind 4 migration removed the previously reported
+  pattern/parser dependency chains. Both the full locked npm graph and
+  `npm audit --omit=dev` reported zero advisories. This does not establish the
+  status of container base images or future dependency releases.
+  See [validation](RELEASE_VALIDATION.md).
+- **Modern browsers are required.** Tailwind 4 targets Safari 16.4+, Chrome 111+
+  and Firefox 128+. Older browser engines are outside the supported styling
+  baseline; see the [Tailwind upgrade guide](https://tailwindcss.com/docs/upgrade-guide).
 
 See [release validation](RELEASE_VALIDATION.md) for checks actually run on this
 public snapshot, [security](../SECURITY.md) for private vulnerability reporting,

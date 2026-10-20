@@ -2,7 +2,7 @@ import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { fetchWorkspacePreferences, productRequest, type CategoryTreatment, type WorkspaceCategory, type WorkspacePreferences } from "../productApi";
 import { ErrorBox, Spinner, useAsync } from "./ui";
 
-export const settingsInput = "settings-input mt-1 min-h-11 w-full min-w-0 rounded-lg border border-line bg-white px-3 py-2 text-sm transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/15 disabled:bg-surface2 disabled:text-mist";
+export const settingsInput = "settings-input mt-1 min-h-11 w-full min-w-0 rounded-lg border border-line bg-white px-3 py-2 text-sm transition-colors focus:border-teal focus:outline-hidden focus:ring-2 focus:ring-teal/15 disabled:bg-surface2 disabled:text-mist";
 const currencies = [
   ["GBP", "British pound"], ["EUR", "Euro"], ["USD", "US dollar"], ["SGD", "Singapore dollar"],
   ["AUD", "Australian dollar"], ["CAD", "Canadian dollar"], ["CHF", "Swiss franc"],

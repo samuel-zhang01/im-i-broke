@@ -53,5 +53,6 @@ household deployment remain separate actions.
 A compatible source-map-js development-tool patch (1.2.1 → 1.2.2) also passed
 156 frontend units/build with all 104 generated frontend files identical to the
 browser-tested build. Remaining npm advisories are five high/two moderate in
-the development graph; production-only npm audit remains zero. A Tailwind major
-migration is tracked separately.
+the development graph; production-only npm audit remains zero. The subsequent
+20 October Tailwind migration removes these chains; see
+[release validation](RELEASE_VALIDATION.md) for its separate checks.

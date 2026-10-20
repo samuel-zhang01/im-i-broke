@@ -121,7 +121,7 @@ export default function AuthGate({ children }: { children: ReactNode }) {
           <p className="mt-0.5 text-[10px] uppercase tracking-[.15em] text-stone-500">Private finances</p>
         </div>
       </div>
-      <Heading ref={recoveryHeading} tabIndex={-1} level={1} variant="page" className="mb-5 outline-none">{codes.length ? 'Save your recovery codes' : security ? 'Replace recovery codes' : !status ? 'Welcome back' : !status.configured ? 'Set up your workspace' : 'Sign in to Am I Broke?'}</Heading>
+      <Heading ref={recoveryHeading} tabIndex={-1} level={1} variant="page" className="mb-5 outline-hidden">{codes.length ? 'Save your recovery codes' : security ? 'Replace recovery codes' : !status ? 'Welcome back' : !status.configured ? 'Set up your workspace' : 'Sign in to Am I Broke?'}</Heading>
       {error && <p role="alert" className="mb-4 text-red-700">{error}</p>}
       {codes.length > 0 ? <>
         <p className="mb-4 text-sm leading-relaxed text-mist">These codes are shown once. Store them in your password manager or offline. Each replaces one authenticator code; you still need your password.{!setupCodes && ' Your previous codes and sessions have been revoked.'}</p>

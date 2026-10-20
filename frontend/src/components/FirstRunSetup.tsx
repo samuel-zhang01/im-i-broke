@@ -76,7 +76,7 @@ export default function FirstRunSetup({ onComplete, onRefresh }: {
       {["Welcome", "Protect", "Recovery"].map((label, index) => <li key={label} aria-current={index === (challenge ? 1 : 0) ? "step" : undefined} className={`flex flex-1 items-center gap-2 ${index === (challenge ? 1 : 0) ? "font-semibold text-teal" : ""}`}><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current">{index + 1}</span>{label}</li>)}
     </ol>
     <div>
-      <Heading level={2} variant="intro" ref={heading} tabIndex={-1} className="outline-none">{challenge ? "Make it yours. Keep it private." : "Your finances, in one place."}</Heading>
+      <Heading level={2} variant="intro" ref={heading} tabIndex={-1} className="outline-hidden">{challenge ? "Make it yours. Keep it private." : "Your finances, in one place."}</Heading>
       <p className="mt-2 text-sm leading-relaxed text-mist">{challenge ? "Choose a password, then add a second layer of protection with an authenticator app." : "Start with a secure account. Then connect a bank, add an investment account, or bring your own CSV."}</p>
     </div>
     {error && <ErrorBox error={error} />}
